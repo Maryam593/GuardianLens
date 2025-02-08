@@ -20,6 +20,7 @@ const LoginPage = () => {
             onChange={handleChange} 
             fullWidth
             margin="normal"
+            required
           />
           <TextField 
             type="password"
@@ -29,6 +30,7 @@ const LoginPage = () => {
             onChange={handleChange} 
             fullWidth
             margin="normal"
+            required
           />
           <Button type='submit' variant="contained" color="primary">Submit</Button>
         </Form>

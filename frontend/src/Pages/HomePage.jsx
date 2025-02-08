@@ -8,22 +8,38 @@ import { Pagination, Navigation } from "swiper/modules";
 const HomePage = () => {
   return (
     <>
-      <div>
-         {/* Hero Section */}
-         <section className="flex flex-col items-center bg-red-300 justify-center h-screen text-center p-8">
-        <h2 className="text-4xl md:text-6xl font-bold">Welcome to GuardianLens!</h2>
-        <p className="mt-4 text-lg md:text-xl max-w-2xl">
-          We provide amazing services to help your business grow.
-        </p>
-        <button className="mt-6 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">Get Started</button>
-      </section>
+      <div className="relative h-screen w-full">
+        {/* ✅ Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/themeVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* ✅ Overlay for better readability */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+
+        {/* ✅ Hero Content */}
+        <section className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center p-8 text-white">
+          <h2 className="text-4xl md:text-6xl font-bold">Welcome to GuardianLens!</h2>
+          <p className="mt-4 text-lg md:text-xl max-w-2xl">
+            We provide amazing services to help your business grow.
+          </p>
+          <button className="mt-6 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">
+            Get Started
+          </button>
+        </section>
       </div>
-      {/* Features Section */}
-     {/* Features Section with Swiper */}
-     <section className="p-10">
+
+      {/* ✅ Features Section with Swiper */}
+      <section className="p-10">
         <Swiper
           modules={[Pagination, Navigation]}
-          spaceBetween={20}
+          spaceBetween={30}
           slidesPerView={1}
           breakpoints={{
             768: { slidesPerView: 2 },
@@ -51,10 +67,16 @@ const HomePage = () => {
               <p className="mt-2">Our team is available to assist you anytime.</p>
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-xl font-semibold">📞 FAQ</h3>
+              <p className="mt-2">Reach us out anywhere anytime!</p>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </section>
-      </>
-  )
+    </>
+  );
 }
 
-export default HomePage
+export default HomePage;
