@@ -5,20 +5,22 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
+
 const HomePage = () => {
   return (
     <>
       <div className="relative h-screen w-full">
         {/* ✅ Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-          <source src="/themeVideo.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* <video 
+  autoPlay 
+  loop 
+  muted 
+  className="absolute top-0 left-0 w-full h-full object-cover"
+>
+<source src="/themeVideo.mp4?nocache=${Date.now()}" type="video/mp4" />
+
+  Your browser does not support the video tag.
+</video> */}
 
         {/* ✅ Overlay for better readability */}
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
