@@ -1,19 +1,21 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const userDataContext = createContext();
 
 const UserContext = ({ children }) => {
-  const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : {};
+  });
 
-  const value = { user, setUser, isLoading, setIsLoading, error, setError };
-  console.log("UserContext Value:", value);
-  return (
-    <userDataContext.Provider value={value}>
-      {children}
-    </userDataContext.Provider>
-  );
+  useEffect(() => {
+    if (user && Object.keys(user).length > 0) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+  }, [user]);
+
+  const value = { user, setUser };
+  return <userDataContext.Provider value={value}>{children}</userDataContext.Provider>;
 };
 
 export default UserContext;

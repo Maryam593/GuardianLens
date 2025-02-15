@@ -18,22 +18,16 @@ const SignUpPage = () => {
       email: values.email, 
       password: values.password
     };
-    console.log (userData)
   
     try {
-      const response = await axios.post("http://localhost:3000/register-yourself-as-survivour", userData,  {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log (response)
+      const response = await axios.post("http://localhost:3000/register-yourself-as-survivour", userData);
+  
       if (response.status === 200) {
-        const data = response.data.data;
+        const data = response.data; 
         console.log("API Response:", data);
-        
-        if (data.user) {
-          setUser(data.data);
-          console.log("User set in context:", data.data);
+        if (data) {  
+          setUser(data);  
+          localStorage.setItem("user", JSON.stringify(data));
         } else {
           console.log("User data is missing in API response!");
         }
@@ -45,6 +39,7 @@ const SignUpPage = () => {
       console.log("Signup API Error:", error);
     }
   };
+  
   
 
   return (
