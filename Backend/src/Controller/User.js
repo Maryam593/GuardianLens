@@ -1,5 +1,5 @@
-import BlackListTokenModel from "../Model.js/BlackListTokenModel.js"
-import UserAuthModel from "../Model.js/UserModel.js"
+import BlackListTokenModel from "../Model/Auth/BlackListTokenModel.js"
+import UserAuthModel from "../Model/Auth/UserModel.js"
 
 const UserAuthController = {
  getAll : async (req,res) => {
