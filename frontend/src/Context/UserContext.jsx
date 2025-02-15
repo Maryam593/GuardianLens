@@ -12,6 +12,9 @@ const UserContext = ({ children }) => {
     if (user && Object.keys(user).length > 0) {
       localStorage.setItem("user", JSON.stringify(user));
     }
+    else {
+      localStorage.removeItem("user"); 
+    }
   }, [user]);
 
   const value = { user, setUser };

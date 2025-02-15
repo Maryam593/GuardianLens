@@ -2,11 +2,38 @@ import React, { useContext, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // Hamburger & Close Icons
 import { UserCircle } from "lucide-react"; // User Avatar Icon
 import { userDataContext } from "../Context/UserContext";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useContext(userDataContext);
-
+  const { user,setUser } = useContext(userDataContext);
+  const navigate = useNavigate()
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("token"); 
+  
+      if (!token) {
+        alert("You are not logged in!");
+        return;
+      }
+  
+      const response = await axios.get("http://localhost:3000/ByeByeSurvivour", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+  
+      if (response.status === 200) {
+        localStorage.removeItem("token"); 
+        localStorage.clear()
+        setUser(null)
+        navigate("/auth/login");
+      }
+    } catch (error) {
+      console.log("Logout Error:", error);
+      alert("Cannot logout at the moment");
+    }
+  };
+  
+  
   useEffect(() => {
     console.log("user data", user);
   }, [user]);
@@ -56,7 +83,7 @@ const Header = () => {
             <li className="p-3 hover:text-blue-400 cursor-pointer transition duration-300">
               Protection Panel
             </li>
-            <li className="p-3 hover:text-red-400 cursor-pointer transition duration-300">
+            <li className="p-3 hover:text-red-400 cursor-pointer transition duration-300" onClick={handleLogout}>
               Logout
             </li>
           </ul>
