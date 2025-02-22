@@ -26,7 +26,7 @@ const Footer = () => {
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Left Side - Text */}
-        <h1 className="text-lg font-semibold">Guardian Lens - All Rights Reserved © 2024</h1>
+        <h1 className="text-lg font-semibold">Guardian Lens - All Rights Reserved © 2025</h1>
 
         {/* Right Side - Social Icons */}
         <div className="flex space-x-4">
