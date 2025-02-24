@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-const AvatarCard = ({user}) => {
+const AvatarCard = ({ user }) => {
+  const fullName = user?.data?.FullName;
+  const firstName = fullName?.firstName || "";
+  const lastName = fullName?.lastName || "";
+
   return (
     <div>
-        <div className="bg-red-100 flex justify-end items-center p-2">
+      <div className="bg-red-100 flex justify-end items-center p-2">
         <h1 className="mr-2 font-medium text-gray-800">
-          {user.data?.FullName
-            ? `${user.data.FullName.firstName} ${user.data.FullName.lastName}`
-            : "Guest"}
+          {fullName ? `${firstName} ${lastName}` : "Guest"}
         </h1>
 
         <div className="bg-red-500 text-white rounded-full px-3 py-1">
-          {user?.data?.FullName.firstName
-            ? `${user.data.FullName.firstName[0].toUpperCase()}${user.data.FullName.lastName[0].toUpperCase()}`
-            : "G"}
+          {fullName ? `${firstName[0].toUpperCase()}${lastName[0]?.toUpperCase() || ""}` : "G"}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AvatarCard
+export default AvatarCard;

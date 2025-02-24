@@ -1,7 +1,14 @@
 import React from "react";
 import themeVideo from "../assets/themeVideo.mp4";
+import { useNavigate } from "react-router-dom";
 
 const GetStarted = () => {
+  const navigate = useNavigate()
+  const handleButton = () => {
+    setTimeout(() => {
+      navigate("/protection/panel")
+    }, 1200);
+  }
   return (
     <div className="">
       {/* ✅ Background Video Full Width & Height */}
@@ -24,7 +31,7 @@ const GetStarted = () => {
         <p className="mt-4 text-lg md:text-xl max-w-2xl drop-shadow-md">
           We provide amazing services to help your business grow.
         </p>
-        <button className="mt-6 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">
+        <button onClick={handleButton} className="mt-6 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">
           Get Started
         </button>
       </div>
