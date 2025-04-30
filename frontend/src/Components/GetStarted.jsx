@@ -10,7 +10,7 @@ const GetStarted = () => {
     }, 1200);
   }
   return (
-    <div className="">
+    <div className="relative w-full h-screen mt-16">
       {/* ✅ Background Video Full Width & Height */}
       <video
         autoPlay

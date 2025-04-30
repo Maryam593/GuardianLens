@@ -7,12 +7,12 @@ const AvatarCard = ({ user }) => {
 
   return (
     <div>
-      <div className="bg-red-100 flex justify-end items-center p-2">
-        <h1 className="mr-2 font-medium text-gray-800">
+      <div className="text-white flex justify-end items-center p-2">
+        <h1 className="mr-2">
           {fullName ? `${firstName} ${lastName}` : "Guest"}
         </h1>
 
-        <div className="bg-red-500 text-white rounded-full px-3 py-1">
+        <div className="bg-red-500 rounded-full px-3 py-1">
           {fullName ? `${firstName[0].toUpperCase()}${lastName[0]?.toUpperCase() || ""}` : "G"}
         </div>
       </div>

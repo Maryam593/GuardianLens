@@ -44,7 +44,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#108dc7] to-[#ef8e38] text-white shadow-lg z-50">
-      <AvatarCard user={user} />
+      
       <div className="flex justify-between items-center px-6 py-4">
         <h1 className="text-2xl font-bold">Guardian Lens!</h1>
 
@@ -82,6 +82,7 @@ const Header = () => {
               </li>
             )}
           </ul>
+          <AvatarCard user={user} />
         </nav>
       </div>
     </header>
